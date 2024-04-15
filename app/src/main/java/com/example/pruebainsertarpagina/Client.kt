@@ -29,5 +29,38 @@ class Client : WebViewClient() {
         }
         return super.shouldOverrideUrlLoading(view, request)
     }
+
+    /*@Deprecated("Deprecated in Java")
+    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+        return if (url != null && (url.startsWith("http://") || url.startsWith("https://"))) {
+            view?.loadUrl(url)
+            true
+        } else {
+            Log.w("warning", "La url no es segura")
+            /*
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            view?.context?.startActivity(intent)
+            */
+            true
+        }
+    }
+
+    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?) : Boolean {
+        val url = request?.url.toString()
+        return if (url.startsWith("http://") || url.startsWith("https://")) {
+            view?.loadUrl(url)
+            true
+        } else {
+            Log.w("warning", "La url no es segura")
+            /*
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            view?.context?.startActivity(intent)
+            */
+            true
+        }
+    }*/
+
 }
+
+
 
