@@ -3,6 +3,7 @@ package com.example.pruebainsertarpagina
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -11,7 +12,7 @@ import android.widget.Toast
 
 class Client : WebViewClient() {
 
-    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+    /*override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
         val url = request?.url.toString()
         if (url.endsWith(".pdf") || url.contains(".pdf?")) {
             val intent = Intent(Intent.ACTION_VIEW)
@@ -28,19 +29,16 @@ class Client : WebViewClient() {
             return true
         }
         return super.shouldOverrideUrlLoading(view, request)
-    }
+    }*/
 
-    /*@Deprecated("Deprecated in Java")
+    @Deprecated("Deprecated in Java")
     override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
         return if (url != null && (url.startsWith("http://") || url.startsWith("https://"))) {
             view?.loadUrl(url)
             true
         } else {
-            Log.w("warning", "La url no es segura")
-            /*
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             view?.context?.startActivity(intent)
-            */
             true
         }
     }
@@ -51,14 +49,11 @@ class Client : WebViewClient() {
             view?.loadUrl(url)
             true
         } else {
-            Log.w("warning", "La url no es segura")
-            /*
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             view?.context?.startActivity(intent)
-            */
             true
         }
-    }*/
+    }
 
 }
 
